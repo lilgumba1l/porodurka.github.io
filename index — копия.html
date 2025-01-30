@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porodurka.com — Мемный сайт про Дурку</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 3em;
+            color: #ff4b4b;
+        }
+        .meme-carousel img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .meme-carousel {
+            margin: 20px auto;
+        }
+        .bio {
+            font-size: 1.5em;
+            color: #333;
+            margin: 20px 0;
+        }
+        .skin {
+            margin-top: 40px;
+        }
+        .skin img {
+            width: 150px;
+        }
+        .joke-btn {
+            background-color: #ff4b4b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        .joke-btn:hover {
+            background-color: #ff7575;
+        }
+        .joke {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Добро пожаловать в porodurka.com!</h1>
+
+    <div class="meme-carousel">
+        <img id="memeImage" src="https://i.imgflip.com/4/4t0m5.jpg" alt="Мем">
+    </div>
+
+    <p class="bio">Дурка — человек, который любит шутить и у него астма! Никогда не знаешь, когда придет следующая шутка!</p>
+
+    <h2>Скин для Minecraft</h2>
+    <div class="skin">
+        <img src="s.png" alt="Дурка скин">
+    </div>
+
+    <button class="joke-btn" onclick="generateJoke()">Рандомная шутка</button>
+    <p class="joke" id="joke">Нажми кнопку, чтобы увидеть шутку!</p>
+
+    <script>
+        const memes = [
+            'https://i.imgflip.com/4/4t0m5.jpg',
+            'https://i.imgflip.com/1bij.jpg',
+            'https://i.imgflip.com/1otk96.jpg',
+            'https://i.imgflip.com/30b1gx.jpg'
+        ];
+
+        let memeIndex = 0;
+        const memeImage = document.getElementById('memeImage');
+
+        setInterval(() => {
+            memeIndex = (memeIndex + 1) % memes.length;
+            memeImage.src = memes[memeIndex];
+        }, 3000);
+
+        const jokes = [
+            'Почему Дурка всегда шутит? Потому что у него астма — смех лечит!',
+            'Когда Дурка входит в игру, Minecraft сам генерирует шутки!',
+            'Дурка не просто персонаж, он мемо-легенда!',
+            'Когда Дурка заходит в комнату, воздух становится мемным!'
+        ];
+
+        function generateJoke() {
+            const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+            document.getElementById('joke').innerText = randomJoke;
+        }
+    </script>
+</body>
+</html>
